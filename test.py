@@ -9,6 +9,3 @@ class Compound():
     def GetName(self):
         return self.NAME
 
-someObj = Compound("Test",'GRAPH')
-secondobj = Compound("Test2","Graph2")
-
