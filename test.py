@@ -4,7 +4,6 @@ import CellSynthetic as cs
 Enviroment = cs.CreateEnviroment("TestEnv")
 
 Cell = cs.CreateCell("TestCell",Enviroment)
-Cell.AddCompartment("ЭПР")
-Cell.AddCompartment("ШЭПР", "ЭПР")
+Cell.SetCompartment("ЭПР")
 
-print(Cell["ШЭПР"])
+print(Cell["ЭПР"])

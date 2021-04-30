@@ -1,7 +1,7 @@
-import Compartments,Proteins,Compounds, Cell
+import Cell
 
 def CreateEnviroment(name):
-    return Compartments.Compartment(name)
+    return Cell.Compartments.Compartment(name)
 
 
 def CreateCell(name, enviromet):

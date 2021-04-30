@@ -11,12 +11,20 @@ class Compartment():
         self.NAME = name
         self.PARENT_COMPARTMENT = Compartment
 
-    def SetComponents(self, proteins:dict=None, compounds:dict=None, compartments:dict=None, mproteins:dict=None, mcompounds:dict=None):
+    def SetProteins(self, proteins:dict):
+        pass
+    def SetMProteins(self, mproteins:dict):
+        pass
+    def SetCompounds(self, compounds:dict):
+        pass
+    def SetMCompounds(self, mcompounds:dict):
+        pass
+    def SetComparment(self, compartment:dict):
         pass
 
     
     def GetComponents(self):
-        return [self.COMPONENTS, self.MEM_COMP]
+        pass
     
     def __call__(self):
         return "Вызов Call"

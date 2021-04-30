@@ -1,6 +1,17 @@
 import Compounds, Compartments, Proteins
 
 class Cell():
+    """
+    Модуль Cell отвечает за манипуляциями связанными с самой клеткой и всем в ней находящимся
+
+    __init__ - конструктор клетки, основанный на обязательном нахождении внутри какого-либо компартмента (по умолчанию - окружение). Сама по себе клетка не является компартментом
+
+    AddCompartment - создает дочерний к самой клетке (если не указан параметр mother_compartment) или к другому компартменту компартмент.
+
+
+    """
+    
+    
     NAME = ""               
     ENVIROMENT = 0          
     COMPARTMENTS = {}
@@ -9,33 +20,27 @@ class Cell():
     mPROTEINS = {}
     mCOMPOUNDS = {}
 
-    def __init__(self, name, Enviroment):           #Инициализация
-        self.NAME = name                            #объекта клетки
+    def __init__(self, name, Enviroment):           
+        self.NAME = name                            
         self.ENVIROMENT = Enviroment
 
     
-    def AddCompartment(self, name, mother_compartment= None):                               #Создается компартмент, по умолчанию дочерний к объекту Клетка
-        if mother_compartment == None:                                                      #В случае указания дочернего элемента запускается проверка на 
-            Com = Compartments.Compartment(name, self)                                      #наличие такового и создания компартмента дочерненго к данному элементу.
-            self.COMPARTMENTS[name]=Com                                                     #В случае отсуствия такого - ошибка                                     
-        elif mother_compartment in list(self.COMPARTMENTS):   
-            Com = Compartments.Compartment(name, self.COMPARTMENTS[mother_compartment])
-            self.COMPARTMENTS[name]=Com
-        else:
-            print("ERROR! There is no compartment with this name.")
+    def SetCompartment(self, name):                                                                                    
+        Com = Compartments.Compartment(name, self)                                   
+        self.COMPARTMENTS[name]=Com                                                                                       
 
     def SetComponents(self):
         pass
 
 
 
-    def __getitem__(self, name):                #Позволяет получить досутп к компартменту по []
-        if name in list(self.COMPARTMENTS):     #
-            return self.COMPARTMENTS[name]      #
+    def __getitem__(self, name):               
+        if name in list(self.COMPARTMENTS):    
+            return self.COMPARTMENTS[name]     
         else:
             return "ERROE! Compartments not found!"    
 
     def __str__(self):
-        return "Имя:{}\nОкружение:{}\nКомпартменты:{}".format(self.NAME,self.ENVIROMENT.NAME,list(self.COMPARTMENTS.keys())) #Выводит общие данные о Клетке
+        return "Имя:{}\nОкружение:{}\nКомпартменты:{}".format(self.NAME,self.ENVIROMENT.NAME,list(self.COMPARTMENTS.keys())) 
 
     
