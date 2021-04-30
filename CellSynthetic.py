@@ -1,10 +1,11 @@
 import Compartments,Proteins,Compounds, Cell
 
-def CreateEnviroment():
-    pass
+def CreateEnviroment(name):
+    return Compartments.Compartment(name)
+
 
 def CreateCell(name, enviromet):
-    pass
+    return Cell.Cell(name, enviromet)
 
 
 def Start():
@@ -14,6 +15,3 @@ def Stop():
     pass
 
 
-
-if __name__ == "__main__":
-    break

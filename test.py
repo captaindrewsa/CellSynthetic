@@ -1,7 +1,10 @@
-import CellSynthetic
+import CellSynthetic as cs
 
 
-Env = CreateEnviroment
-TestCell = CreateCell
-TestCell.AddCompartment #Создаем первые комартменты клетки
-TestCell[Compartment] #Получаем доступ к модификации компартмента
+Enviroment = cs.CreateEnviroment("TestEnv")
+
+Cell = cs.CreateCell("TestCell",Enviroment)
+Cell.AddCompartment("ЭПР")
+Cell.AddCompartment("ШЭПР", "ЭПР")
+
+print(Cell["ШЭПР"])
